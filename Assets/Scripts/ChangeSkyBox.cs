@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeSkyBox : MonoBehaviour
 {
 	public Material[] skyboxes; // Array of skybox materials to switch between
-    public float changeInterval = 30.0f; // Time interval to change skybox
+    public float changeInterval = 2.0f; // Time interval to change skybox
     private float elapsedTime = 0.0f;
     private int currentIndex = 0;
 
