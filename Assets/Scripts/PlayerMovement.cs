@@ -9,11 +9,12 @@ public class PlayerMovement : MonoBehaviour
     private bool turnLeft, turnRight;
     public float speed = 10.0f;
     private CharacterController myCharacterController;
+    private Vector3 moveDirection = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
         myCharacterController = GetComponent<CharacterController>();
-        
     }
 
     // Update is called once per frame
@@ -34,15 +35,20 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(new Vector3(0f, 90f, 0f));
         }
 
-        myCharacterController.SimpleMove(new Vector3(0f, 0f, 0f));
-        myCharacterController.Move(transform.forward * speed * Time.deltaTime);
-        
+        moveDirection = transform.forward * speed * Time.deltaTime;
+        myCharacterController.Move(moveDirection);
     }
 
     public void Die() {
         alive = false;
         //restart game
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
+
+    void onTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Obstacle"){
+			Die();
+		}
+	}
 }
