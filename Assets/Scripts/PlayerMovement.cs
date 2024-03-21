@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void onTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Obstacle"){
 			Die();
