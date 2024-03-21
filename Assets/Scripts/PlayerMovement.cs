@@ -37,6 +37,12 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = transform.forward * speed * Time.deltaTime;
         myCharacterController.Move(moveDirection);
+
+        if (!myCharacterController.isGrounded){
+            float gravity = 9.8f;
+            Vector3 gravityMovement = Vector3.down * gravity * Time.deltaTime;
+            myCharacterController.Move(gravityMovement);
+        }
     }
 
     public void Die() {
@@ -45,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void onTriggerEnter(Collider other)
+    public void onTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Obstacle"){
 			Die();
