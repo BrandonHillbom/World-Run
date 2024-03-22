@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 8631180253518408876, guid: 681b05ca356e61d4c83b4baeeefa1358, type: 3}
+  relicPrefab: {fileID: 5526379139576331749, guid: a6fe67334ac8ac748a78e14196a2459b, type: 3}
 --- !u!1 &3441913767773488130
 GameObject:
   m_ObjectHideFlags: 0
