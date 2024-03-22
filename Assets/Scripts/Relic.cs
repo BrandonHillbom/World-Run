@@ -15,8 +15,11 @@ public class Relic : MonoBehaviour
         //     Destroy(gameObject);
         //     return;
         // }
-        if (collider.gameObject.name == "Player") { 
+        if (collider.gameObject.name == "Player") {
+
+            GameManager.gm.IncrementRelicCount();
              Destroy(gameObject); //Player has collected relic, now get rid of it
+
         }
        
     }
