@@ -4,12 +4,14 @@ public class GroundTile : MonoBehaviour
 {
     GroundSpawner groundSpawner;
     public GameObject obstaclePrefab;
+    public GameObject relicPrefab;
     bool obstaclesSpawned = false; // flag to track if obstacles have been spawned
 
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
         Invoke("SpawnObstacle", 5f); // Delay obstacle spawning by 5 seconds
+        Invoke("SpawnRelic", 5f);
     }
 
     private void OnTriggerExit(Collider other) {
@@ -27,4 +29,19 @@ public class GroundTile : MonoBehaviour
             obstaclesSpawned = true; // Set flag to true to indicate obstacles have been spawned
         }
     }
+
+    void SpawnRelic () {
+        GameObject relic = Instantiate(relicPrefab, transform); //spawn and attach it to parent transofrm so it is removed if passed
+        relic.transform.position = getPositionOfRelic(GetComponent<Collider>()); //generate randomly on the path
+
+    }
+
+    Vector3 getPositionOfRelic(Collider path) {
+        float xPosition = Random.Range(path.bounds.min.x, path.bounds.max.x); //get a point on the path in the x axis
+        float zPosition = Random.Range(path.bounds.min.z, path.bounds.max.z); //get a point on the path in the zy axis
+    
+        return new Vector3(xPosition, 1, zPosition);
+    }
+
+
 }

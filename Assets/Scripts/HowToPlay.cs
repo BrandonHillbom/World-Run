@@ -5,7 +5,7 @@ using TMPro;
 
 public class HowToPlay : MonoBehaviour
 {
-     public TMP_Text instructionText; // Reference to the TextMeshPro text component for instructions
+    public TMP_Text instructionText; // Reference to the TextMeshPro text component for instructions
     public float displayDuration = 5f; // Duration for which instructions will be displayed
 
     private float startTime;
