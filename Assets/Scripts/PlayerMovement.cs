@@ -19,48 +19,47 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+  // Update is called once per frame
+void Update()
+{
+    if (!alive) return;
+
+    if (transform.position.y < -5)
     {
-        if (!alive) return;
-
-        if (transform.position.y < -5)
-        {
-            Die(); //if player falls off left side
-        }
-
-        turnLeft = Input.GetKeyDown(KeyCode.A);
-        turnRight = Input.GetKeyDown(KeyCode.D);
-        jump = Input.GetKey(KeyCode.Space);
-
-        if (turnLeft)
-        {
-            transform.Rotate(new Vector3(0f, -90f, 0f));
-        }
-        else if (turnRight)
-        {
-            transform.Rotate(new Vector3(0f, 90f, 0f));
-        }
-
-        moveDirection = transform.forward * speed * Time.deltaTime;
-
-        // Apply gravity
-        if (!myCharacterController.isGrounded)
-        {
-            float gravity = 9.8f;
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
-
-        // Jumping  
-        if (myCharacterController.isGrounded && jump)
-        {
-            moveDirection.y = jumpForce; 
-            Debug.Log("Grounded: " + myCharacterController.isGrounded);
-            Debug.Log("Jump Key Pressed: " + jump);
-        }
-
-        // Apply movement 
-        myCharacterController.Move(moveDirection);
+        Die(); //if player falls off left side
     }
+
+    turnLeft = Input.GetKeyDown(KeyCode.A);
+    turnRight = Input.GetKeyDown(KeyCode.D);
+    jump = Input.GetKeyDown(KeyCode.Space); // Change to GetKeyDown
+
+    if (turnLeft)
+    {
+        transform.Rotate(new Vector3(0f, -90f, 0f));
+    }
+    else if (turnRight)
+    {
+        transform.Rotate(new Vector3(0f, 90f, 0f));
+    }
+
+    moveDirection = transform.forward * speed * Time.deltaTime;
+
+    // Apply gravity
+    float gravity = 9.8f; // Move gravity calculation out of the if statement
+    moveDirection.y -= gravity * Time.deltaTime;
+
+    // Jumping  
+    if (myCharacterController.isGrounded && jump)
+    {
+        moveDirection.y = jumpForce; 
+        Debug.Log("Grounded: " + myCharacterController.isGrounded);
+        Debug.Log("Jump Key Pressed: " + jump);
+    }
+
+    // Apply movement 
+    myCharacterController.Move(moveDirection);
+}
+
 
     public void Die()
     {
