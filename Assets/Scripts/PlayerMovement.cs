@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         myCharacterController = GetComponent<CharacterController>();
+        transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z); 
     }
 
     // Update is called once per frame
