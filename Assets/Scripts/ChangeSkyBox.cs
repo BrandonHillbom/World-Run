@@ -4,32 +4,43 @@ using UnityEngine;
 
 public class ChangeSkyBox : MonoBehaviour
 {
-	public Material[] skyboxes; // Array of skybox materials to switch between
-    public float changeInterval = 30f; // Time interval to change skybox
-    private float elapsedTime = 0.0f;
-    private int currentIndex = 0;
+    public Material[] skyboxes; // Array of skybox materials to switch between
+    private int currentIndex = -1; // Current index of the active skybox
 
     void Start()
     {
-        RenderSettings.skybox = skyboxes[currentIndex]; // Set initial skybox
+        Update();
     }
 
     void Update()
     {
-        // Update elapsed time
-        elapsedTime += Time.deltaTime;
+        int relicCount = GameManager.gameManager.getRelicCount() % 40; // Effective relic count within each cycle of 40
 
-        // Check if it's time to change the skybox
-        if (elapsedTime >= changeInterval)
+        // Determine which skybox to use based on relic count
+        int newIndex = 0;
+        if (relicCount >= 0 && relicCount <= 10)
         {
-            // Reset timer
-            elapsedTime = 0.0f;
-
-            // Increment index or loop back to the beginning if reached the end
-            currentIndex = (currentIndex + 1) % skyboxes.Length;
-
-            // Change skybox
-            RenderSettings.skybox = skyboxes[currentIndex];
+            newIndex = 0;
+        }
+        else if (relicCount >= 11 && relicCount <= 20)
+        {
+            newIndex = 1;
+        }
+        else if (relicCount >= 21 && relicCount <= 30)
+        {
+            newIndex = 2;
+        }
+         else if (relicCount >= 31 && relicCount <= 40)
+        {
+            newIndex = 3;
+        }
+        
+        // Change the skybox if the index has changed
+        if (newIndex != currentIndex && newIndex < skyboxes.Length)
+        {
+            RenderSettings.skybox = skyboxes[newIndex];
+            currentIndex = newIndex;
         }
     }
+
 }
