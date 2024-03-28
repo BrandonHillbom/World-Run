@@ -456,7 +456,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d4e3c25783e6a6b46b322452a377f3fa, type: 2}
   - {fileID: 2100000, guid: 1c213153e5cef9f45981989a9d26f319, type: 2}
   - {fileID: 2100000, guid: ed8a4dbaa2f7b1e499ade79e26d58215, type: 2}
-  changeInterval: 60
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 8
+  jumpForce: 50
 --- !u!143 &2136203975
 CharacterController:
   m_ObjectHideFlags: 0

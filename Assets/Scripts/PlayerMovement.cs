@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour
     bool alive = true;
     private bool turnLeft, turnRight, jump;
     public float speed = 10.0f;
-    public float jumpForce = 8.0f; // The force applied when jumping
+    public float jumpForce = 50.0f; // The force applied when jumping
     private CharacterController myCharacterController;
     private Vector3 moveDirection = Vector3.zero;
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -42,48 +42,26 @@ void Update()
     }
 
     moveDirection = transform.forward * speed * Time.deltaTime;
-
-   /* Apply gravity
-    float gravity = 9.8f; // Move gravity calculation out of the if statement
-   moveDirection.y -= gravity * Time.deltaTime;
-
-    Jumping  
-    if (myCharacterController.isGrounded)
-   {
-        if(jump){
-        Debug.Log("Character y position before jumpinng: " +  moveDirection.y);
-        Vector3 jumpDirection = -transform.forward;
-        jumpDirection.y = 0f;
-        moveDirection = jumpDirection * speed * Time.deltaTime;
-        moveDirection.y = jumpForce;
-        myCharacterController.Move(moveDirection);
-        Debug.Log("Character y position aftter jumpinng: " +  moveDirection.y);
+    float gravity = 9.8f;
+        if (!myCharacterController.isGrounded)
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
         }
-    }
-     jumping algorithm problem  when space bar  is pressed  player position its over ridden  then the playing start falling
-    */
-
-   float gravity = 9.8f;
-    if (!myCharacterController.isGrounded)
-    {
-        moveDirection.y -= gravity * Time.deltaTime;
-    }
-    else
-    {
-        // Reset vertical velocity when grounded to avoid accumulating downward force
-        moveDirection.y = 0f;
-    }
-
-    // Jumping  
-    if (jump && myCharacterController.isGrounded)
-    {
-   // Calculate jump force to be applied
-    float jumpVelocity = Mathf.Sqrt(2 * jumpForce * gravity);
-    // Set vertical velocity to jump force
-    moveDirection.y = jumpVelocity;
-    }
-    
-    // Apply movement 
+        else
+        {
+            // Reset vertical velocity when grounded to avoid accumulating downward force
+            moveDirection.y = 0f;
+        }
+        // Jumping  
+        if (jump && myCharacterController.isGrounded)
+        {
+            Debug.Log("Character y position before jumpinng: " +  moveDirection.y);
+            // Calculate jump velocity
+            float jumpVelocity = Mathf.Sqrt(2 * jumpForce * gravity * Time.deltaTime);
+            // Set vertical velocity to jump force
+            moveDirection.y += jumpVelocity;
+            Debug.Log("Character y position aftter jumpinng: " +  moveDirection.y);
+        }
     myCharacterController.Move(moveDirection);
 }
 
