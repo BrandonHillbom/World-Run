@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeSkyBox : MonoBehaviour
 {
     public Material[] skyboxes; // Array of skybox materials to switch between
-    private int currentIndex = -1; // Current index of the active skybox
+    public int currentIndex = -1; // Current index of the active skybox
 
     void Start()
     {

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\RuntimeDisplay.cs" />
+    <Compile Include="Assets\Scripts\ChangeObstacleMaterial.cs" />
     <Compile Include="Assets\Scripts\ChangeSkyBox.cs" />
     <Compile Include="Assets\Scripts\GroundTile.cs" />
     <Compile Include="Assets\Scripts\HowToPlay.cs" />
