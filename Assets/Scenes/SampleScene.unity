@@ -454,7 +454,7 @@ MonoBehaviour:
   skyboxes:
   - {fileID: 2100000, guid: 51f2c71c742edd544bf07a5d95972c03, type: 2}
   - {fileID: 2100000, guid: d4e3c25783e6a6b46b322452a377f3fa, type: 2}
-  - {fileID: 2100000, guid: 1c213153e5cef9f45981989a9d26f319, type: 2}
+  - {fileID: 2100000, guid: be7737b506fdef6478806f6f4eb23992, type: 2}
   - {fileID: 2100000, guid: ed8a4dbaa2f7b1e499ade79e26d58215, type: 2}
 --- !u!1 &705507993
 GameObject:

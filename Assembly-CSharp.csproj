@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\HowToPlay.cs" />
     <Compile Include="Assets\Scripts\TrailCamera.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\GroundSpawner.cs" />
     <Compile Include="Assets\Scripts\Relic.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />

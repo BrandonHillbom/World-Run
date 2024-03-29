@@ -363,6 +363,7 @@
 "Assets/Scripts/GroundTile.cs"
 "Assets/Scripts/HowToPlay.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Scripts/PowerUp.cs"
 "Assets/Scripts/Relic.cs"
 "Assets/Scripts/RuntimeDisplay.cs"
 "Assets/Scripts/TrailCamera.cs"
