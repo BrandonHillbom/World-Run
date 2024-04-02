@@ -15,4 +15,12 @@ public class PowerUp : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider collider) {
+        //destroy powerup if the player runs into it 
+        if (collider.gameObject.name == "Player") {
+            Destroy(gameObject);
+
+        }
+    }
 }

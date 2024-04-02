@@ -8,13 +8,15 @@ public class GroundTile : MonoBehaviour
     public GameObject relicPrefab;
     public GameObject powerUpPrefab;
     bool obstaclesSpawned = false; // flag to track if obstacles have been spawned
+    bool powerUpSpawned = false;
 
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
         Invoke("SpawnObstacle", 5f); // Delay obstacle spawning by 5 seconds
         Invoke("SpawnRelic", 5f);
-        StartCoroutine(SpawnTokenEvery30Seconds());
+        Invoke("SpawnPowerUp", 5f);
+        //InvokeRepeating("SpawnPowerUp", 30f, 30f);
     }
 
     private void OnTriggerExit(Collider other)
@@ -42,18 +44,6 @@ public class GroundTile : MonoBehaviour
         relic.transform.position = getPositionOnPath(GetComponent<Collider>()); // Generate randomly on the path
     }
 
-    IEnumerator SpawnTokenEvery30Seconds()
-    {
-        Debug.Log("Coroutine started");
-        while (true)
-        {
-            yield return new WaitForSeconds(30f); // Wait for 30 seconds
-
-            Vector3 spawnPosition = getPositionOnPath(GetComponent<Collider>()); // Get position on the path
-            Instantiate(powerUpPrefab, spawnPosition, Quaternion.identity); // Spawn token at the position
-            Debug.Log("Token spawned at: " + spawnPosition);
-        }
-    }
 
     Vector3 getPositionOnPath(Collider path)
     {
@@ -61,5 +51,15 @@ public class GroundTile : MonoBehaviour
         float zPosition = Random.Range(path.bounds.min.z, path.bounds.max.z); // Get a point on the path in the z-axis
 
         return new Vector3(xPosition, 1, zPosition);
+    }
+
+    void SpawnPowerUp()
+    {
+        if (!powerUpSpawned)
+        {
+        Vector3 powerUpPosition = new Vector3(0.5f, 0.5f, 103.52313f);
+        Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+        powerUpSpawned = true;
+        }
     }
 }
