@@ -9,20 +9,23 @@ public class GroundTile : MonoBehaviour
     public GameObject powerUpPrefab;
     bool obstaclesSpawned = false; // flag to track if obstacles have been spawned
     bool powerUpSpawned = false;
+   
 
     void Start()
     {
         groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
+      
         Invoke("SpawnObstacle", 5f); // Delay obstacle spawning by 5 seconds
         Invoke("SpawnRelic", 5f);
         Invoke("SpawnPowerUp", 5f);
-        //InvokeRepeating("SpawnPowerUp", 30f, 30f);
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
         groundSpawner.SpawnTile();
         Destroy(gameObject, 2); // Destroy game object 2s later
+
     }
 
     void SpawnObstacle()
@@ -57,8 +60,17 @@ public class GroundTile : MonoBehaviour
     {
         if (!powerUpSpawned)
         {
-        Vector3 powerUpPosition = new Vector3(0.5f, 0.5f, 103.52313f);
-        Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+        float initialZ  = 103.52313f;
+        float zIncrement = 300f;
+        
+        for (int i = 0; i < 100; i++) // Spawn 100 power-ups
+        {       
+            Vector3 powerUpPosition = new Vector3(0.6f, 0.6f, initialZ + i * zIncrement);
+            Instantiate(powerUpPrefab, powerUpPosition, Quaternion.identity);
+        }
+       
+        
+        
         powerUpSpawned = true;
         }
     }

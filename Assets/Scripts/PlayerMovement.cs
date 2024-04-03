@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    bool alive = true;
+    public bool alive = true;
+    //public bool alive { get; private set; } = true;
     bool hasPowerUp = false;
     
     private bool turnLeft, turnRight, jump;
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         myCharacterController = GetComponent<CharacterController>();
         // Reset power-up state and timer on respawn
             hasPowerUp = false;
-            PowerUpStartTime = Time.time;
+            //PowerUpStartTime = Time.time;
     
     }
 
@@ -98,12 +99,13 @@ void Update()
         {
             hasPowerUp = true; // Set the flag to true
             Destroy(other.gameObject); // Destroy the power-up object
+            PowerUpStartTime = Time.time;
         }
     }
 
     public void PowerUpCountDown()
     {
-        float PowerUpDuratation = 15f; 
+        float PowerUpDuratation = 10f; 
         float elapsedTime = Time.time - PowerUpStartTime;
         remainingPowerUpTime = PowerUpDuratation - elapsedTime;
         
