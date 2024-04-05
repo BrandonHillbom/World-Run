@@ -13,13 +13,13 @@ public class HowToPlay : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        DisplayInstructions();
+       // DisplayInstructions();
     }
 
-    void DisplayInstructions()
-    {
+    // void DisplayInstructions()
+    // {
         
-    }
+    // }
 
     void Update()
     {
