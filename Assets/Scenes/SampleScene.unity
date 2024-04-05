@@ -196,8 +196,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Welcome to the game!\n\nInstructions:\n- Use A to move LEFT\n- Use D to
-    move RIGHT\n-Press SPACE to JUMP\n- Collect Tokens to earn points\n- Avoid obstacles\n\nPRESS
-    ANY KEY TO START
+    move RIGHT\n-Press SPACE to JUMP\n- Collect Tokens to earn points\n- Avoid obstacles\n\n
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -224,8 +223,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31
-  m_fontSizeBase: 31
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -308,8 +307,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 158.72705, y: -30}
-  m_SizeDelta: {x: 277.4541, y: 50}
+  m_AnchoredPosition: {x: 136, y: -36.92}
+  m_SizeDelta: {x: 258.823, y: 73.8386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426664493
 MonoBehaviour:
@@ -358,8 +357,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -942,8 +941,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -194.5941, y: 129}
-  m_SizeDelta: {x: 296.8118, y: 50}
+  m_AnchoredPosition: {x: -266.91, y: -220.66}
+  m_SizeDelta: {x: 227.6715, y: 26.6852}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373645998
 MonoBehaviour:
@@ -974,8 +973,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285176320
-  m_fontColor: {r: 0, g: 0.6037736, b: 0.41672215, a: 1}
+    rgba: 4279238854
+  m_fontColor: {r: 0.7783019, g: 0, b: 0.06345503, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -992,8 +991,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1123,7 +1122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -90, y: -30}
+  m_AnchoredPosition: {x: -81.17, y: -24.2}
   m_SizeDelta: {x: 162.33997, y: 48.39911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2017490036
@@ -1326,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3599bdf889a829c49abb607b2a619a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alive: 1
   speed: 10
   jumpForce: 80
 --- !u!143 &2136203975

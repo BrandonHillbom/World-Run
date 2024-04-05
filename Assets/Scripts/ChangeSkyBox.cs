@@ -14,23 +14,23 @@ public class ChangeSkyBox : MonoBehaviour
 
     void Update()
     {
-        int relicCount = GameManager.gameManager.getRelicCount() % 40; // Effective relic count within each cycle of 40
+        int relicCount = GameManager.gameManager.getRelicCount() % 100; // Effective relic count within each cycle of 40
 
         // Determine which skybox to use based on relic count
         int newIndex = 0;
-        if (relicCount >= 0 && relicCount <= 10)
+        if (relicCount >= 0 && relicCount <= 25)
         {
             newIndex = 0;
         }
-        else if (relicCount >= 11 && relicCount <= 20)
+        else if (relicCount >= 26 && relicCount <= 50)
         {
             newIndex = 1;
         }
-        else if (relicCount >= 21 && relicCount <= 30)
+        else if (relicCount >= 51 && relicCount <= 75)
         {
             newIndex = 2;
         }
-         else if (relicCount >= 31 && relicCount <= 40)
+         else if (relicCount >= 76 && relicCount <= 100)
         {
             newIndex = 3;
         }
